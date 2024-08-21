@@ -6,16 +6,18 @@ def main():
     arvo = int(input("Anna hemoglobiiniarvo (g/l): "))
     sukupuoli = input("Anna sukupuoli (nainen/mies): ")
 
-    if arvo > 117 and sukupuoli == "nainen":
-        print("Hemoglobiiniarvot on normaalit")
-    elif arvo < 175 and sukupuoli == "nainen":
-        print("Hemoglobiiniarvot on normaalit")
-    elif arvo > 134 and sukupuoli == "mies":
-        print("Hemoglobiiniarvot on normaalit")
-    elif arvo < 195 and sukupuoli == "mies":
-        print("Hemoglobiiniarvot on normaalit")
-    else:
-        print("Hemoglobiiniarvot epänormaalit")
+    if arvo > 117 and arvo < 175 and sukupuoli == "nainen":
+        print("Hemoglobiiniarvo on normaalit")
+    elif arvo < 117 and sukupuoli == "nainen":
+        print("Hemoglobiiniarvo on alhaiset")
+    elif arvo > 175 and sukupuoli == "nainen":
+        print("Hemoglobiiniarvo on korkea")
+    elif arvo > 134 and arvo < 195 and sukupuoli == "mies":
+        print("Hemoglobiiniarvo on normaalit")
+    elif arvo < 134 and sukupuoli == "mies":
+        print("Hemoglobiiniarvo on alhaiset")
+    elif arvo > 195 and sukupuoli == "mies":
+        print("Hemoglobiiniarvo on korkea")
 
 if __name__ == "__main__":
     main()
