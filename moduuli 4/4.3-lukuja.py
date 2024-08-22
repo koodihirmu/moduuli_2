@@ -1,17 +1,21 @@
 def main():
 
     numerot = []
-    
+
+    print("Anna lukuja, tyhjä lopettaa ohjelman")
+
     while True:
-        u_input = input("Anna luku tai tyhjä lopettaaksesi ohjelman: ")
-        if u_input == "": 
+        nums = input("Anna luku: ")
+        if nums == "":
             break
         # lisää numero listaan
-        numerot.append(int(u_input))
-    
+        numerot.append(int(nums))
+
     if numerot:
         numerot.sort()
-        print(numerot[:-1])
+        print(f"Pienin numero: {numerot[0]}")
+        print(f"Suurin numero: {numerot[-1]}")
+
 
 if __name__ == "__main__":
     main()
