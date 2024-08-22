@@ -10,7 +10,11 @@ def main():
         y = rd.uniform(-1, 1)
         if (x**2+y**2 < 1):
             pisteita_ympyrassa += 1
-        print(f"Piin likiarvo: {4*pisteita_ympyrassa/i}")
+
+        # nopeammin saa tuloksen ulos jos ei printtaa välillä likiarvoa
+        # print(f"Piin likiarvo: {4*pisteita_ympyrassa/i}")
+
+    print(f"Piin likiarvo: {4*pisteita_ympyrassa/pisteita}")
 
 
 if __name__ == "__main__":
