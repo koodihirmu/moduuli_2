@@ -5,19 +5,18 @@ def karsi_parittomat(list: list) -> list:
             list_temp.append(i)
     return list_temp
 
-
-def main():
-
-    list = [2,6,3,3,6,45,9,6]
-    list2 = karsi_parittomat(list)
-    
+def tulosta_lista(list: list) -> None:
     for i in list:
         print(f"{i} ", end="")
     print()
 
-    for i in list2:
-        print(f"{i} ", end="")
-    print()
+def main() -> None:
+
+    list = [2,6,3,3,6,45,9,6]
+    list2 = karsi_parittomat(list)
+
+    tulosta_lista(list)
+    tulosta_lista(list2)
 
 if __name__ == "__main__":
     main()
