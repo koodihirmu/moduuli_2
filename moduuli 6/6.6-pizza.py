@@ -20,7 +20,7 @@ def vertaa(pizza_1: tuple, pizza_2: tuple) -> str:
         return f"Pizza 2 on parempi diili."
 
 
-def main():
+def main() -> None:
     pizza_1 = pizza()
     pizza_2 = pizza()
     print(vertaa(pizza_1, pizza_2))
