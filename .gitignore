@@ -2,3 +2,4 @@
 **.exe
 **.nvimlog
 *.venv
+*_test.py
