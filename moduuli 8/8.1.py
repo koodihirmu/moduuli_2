@@ -1,6 +1,7 @@
 import mysql.connector as mysql
 
-yhteys = mysql.connect(
+# avataan yhtey tietokantaan
+connection = mysql.connect(
     host='127.0.0.1',
     port= 3306,
     database= 'flight_game',
@@ -9,44 +10,31 @@ yhteys = mysql.connect(
     autocommit= True
 )
 
-def get_airport_by_icao(icao):
-    sql = f"SELECT ident, municipality, airport.name FROM airport \
-        WHERE ident = \"{icao}\""
+def get_airport_by_icao(icao: str):
+    # sql query
+    sql = f"select airport.name, municipality \
+        from airport where ident = \"{icao}\""
 
-    with yhteys.cursor() as cursor:
+    # valitaan tietoa taulusta
+    with connection.cursor(dictionary=True) as cursor:
         cursor.execute(sql)
-        airport_data = cursor.fetchall()
-        return airport_data
+        return cursor.fetchall()
 
-        # for row in rows:
-        #     print(row)
-        #     (id, municipality, data) = row
-        #     print(f"{id} - {municipality} - {data}")
-
-def get_airport_by_municipality(municipality):
-    sql = f"SELECT ident, municipality, airport.name FROM airport \
-        WHERE municipality = \"{municipality}\""
-
-    with yhteys.cursor() as cursor:
-        cursor.execute(sql)
-        airport_data = cursor.fetchall()
-        return airport_data
 
 def main():
-    # while True:
-    #     u_input = input("Lentokentän ICAO: ")
-    #     if u_input == "":
-    #         print("Closing program")
-    #         break
-    #     u_input = u_input.upper()
-    #     get_airport_by_icao(u_input)
+    running = True
+    while running:
+        get_icao = input("Anna lentokentän tunnus: ")
+        if get_icao == "":
+            print("Ohjelmaa lopetetaan")
+            running = False
 
-    airport_data = get_airport_by_municipality("helsinki")
-    for airport in airport_data:
-        (icao, municipality, name) = airport
-        print(f"{icao} nimi on {name} ja sen sijainti {municipality}")
-
+        for airport in get_airport_by_icao(get_icao):
+            print(f"Lentokentän nimi on {airport['name']} ja paikkakunta {airport['municipality']}")
 
 if __name__ == "__main__":
     main()
-    yhteys.close()
+    
+    # suljetaan yhteys sql tietokantaan
+    print("Sql yhteyttä suljetaan")
+    connection.close()
