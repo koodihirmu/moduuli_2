@@ -1,6 +1,6 @@
 import mysql.connector as mysql
 
-# avataan yhtey tietokantaan
+# avataan yhteys tietokantaan
 connection = mysql.connect(
     host='127.0.0.1',
     port= 3306,
