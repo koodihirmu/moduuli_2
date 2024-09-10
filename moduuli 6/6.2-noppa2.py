@@ -1,5 +1,6 @@
 import random as rd
 
+
 def noppa(koko) -> int:
     return rd.randint(1, koko)
 

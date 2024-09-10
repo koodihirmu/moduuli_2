@@ -1,3 +1,4 @@
 **.nix
 **.exe
 **.nvimlog
+*.venv

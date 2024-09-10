@@ -12,7 +12,7 @@ def main():
         if (uusi_nimi == ""):
             break
 
-        if uusi_nimi in nimet:
+        if nimet.add(uusi_nimi):
             print("Aiemmin syötetty nimi")
         else:
             print("Uusi nimi")
